@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Figurinhas Avisa São José dos Campos</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#17202a}
+header{background:#0b6b3a;color:#fff;padding:28px 18px;text-align:center}header h1{margin:0;font-size:27px}header p{margin:8px 0 0}
+main{max-width:760px;margin:auto;padding:18px}.card{background:#fff;border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 4px 18px #0001}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.pack{border:1px solid #ddd;border-radius:15px;padding:16px;text-align:center}
+.price{font-size:25px;font-weight:bold;margin:10px}.btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;background:#0b6b3a;color:#fff;font-size:17px;font-weight:bold;text-decoration:none;cursor:pointer}
+.reward{text-align:center}.dots{font-size:31px;letter-spacing:8px;margin:15px}.small{font-size:13px;color:#65717c}.hidden{display:none}.sticker{font-size:60px;margin:10px}
+footer{text-align:center;padding:25px;color:#68737d}@media(max-width:500px){.grid{grid-template-columns:1fr}}
+</style>
+</head><body>
+<header><h1>FIGURINHAS AVISA SÃO JOSÉ DOS CAMPOS</h1><p>Escolha seu pacote ou ganhe uma figurinha grátis</p></header>
+<main>
+<section class="card"><h2>🔥 Pacotes de figurinhas</h2><div class="grid">
+<div class="pack"><b>Pacote 1</b><div class="price">R$ 2,90</div><a class="btn" href="#">COMPRAR</a></div>
+<div class="pack"><b>Pacote 2</b><div class="price">R$ 3,90</div><a class="btn" href="#">COMPRAR</a></div>
+<div class="pack"><b>Pacote 3</b><div class="price">R$ 5,90</div><a class="btn" href="#">COMPRAR</a></div>
+<div class="pack"><b>Pacote Completo</b><div class="price">R$ 9,90</div><a class="btn" href="#">COMPRAR</a></div>
+</div><p class="small">Troque os # pelos seus links de pagamento.</p></section>
+
+<section class="card reward"><h2>🎁 Ganhe uma figurinha grátis</h2>
+<p>Assista aos anúncios disponíveis. Ao completar 4 recompensas válidas, uma figurinha é liberada.</p>
+<div class="dots" id="dots">○ ○ ○ ○</div><b id="status">0 de 4 anúncios concluídos</b><br><br>
+<button class="btn" id="adBtn">ASSISTIR ANÚNCIO</button>
+<div id="prize" class="hidden"><div class="sticker">🎉</div><h2>Figurinha liberada!</h2><a class="btn" href="#" id="stickerLink">RECEBER FIGURINHA</a></div>
+<p class="small">Modo demonstração: este botão simula a conclusão. Para monetizar, conecte um provedor de rewarded ads e incremente o contador somente no evento oficial de recompensa.</p>
+</section>
+</main><footer>© Avisa São José dos Campos</footer>
+<script>
+let done=0;const dots=document.getElementById('dots'),status=document.getElementById('status'),btn=document.getElementById('adBtn'),prize=document.getElementById('prize');
+function rewardedAdCompleted(){if(done>=4)return;done++;dots.textContent=[0,1,2,3].map(i=>i<done?'●':'○').join(' ');status.textContent=done+' de 4 anúncios concluídos';if(done===4){btn.classList.add('hidden');prize.classList.remove('hidden')}}
+btn.onclick=()=>{alert('DEMONSTRAÇÃO: aqui será aberto o anúncio premiado.');rewardedAdCompleted()};
+</script></body></html>
